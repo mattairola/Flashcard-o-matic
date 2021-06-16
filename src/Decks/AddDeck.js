@@ -3,25 +3,25 @@ import { Link, useHistory } from "react-router-dom";
 import { createDeck } from "../utils/api";
 import DeckForm from "./DeckForm";
 
-function NewDeck() {
+function AddDeck() {
     const history = useHistory();
-    const [ deck, setDeck ] = useState({
+    const [ newDeck, setNewDeck ] = useState({
         id: 0,
         name: "",
         description: ""
     });
 
     const nameChangeHandler = (event) => {
-        setDeck({...deck, name: event.target.value});
+        setNewDeck({...newDeck, name: event.target.value});
       };
     
       const descChangeHandler = (event) => {
-        setDeck({...deck, description: event.target.value});
+        setNewDeck({...newDeck, description: event.target.value});
       };
 
     const submitHandler = (event) => {
         event.preventDefault();
-        createDeck(deck).then((result) => history.push(`/decks/${result.id}`));
+        createDeck(newDeck).then((result) => history.push(`/decks/${result.id}`));
     }
 
     return (
@@ -38,7 +38,7 @@ function NewDeck() {
             </nav>
         <h4>Create Deck</h4>
             <DeckForm 
-                deck={deck}
+                newDeck={newDeck}
                 nameChangeHandler={nameChangeHandler}
                 descChangeHandler={descChangeHandler}
                 submitHandler={submitHandler}
@@ -47,4 +47,4 @@ function NewDeck() {
     )
 }
 
-export default NewDeck;
+export default AddDeck;

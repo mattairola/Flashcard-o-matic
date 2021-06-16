@@ -11,6 +11,7 @@ import Decks from "../Decks";
 
 function Layout() {
   const [ decks, setDecks ] = useState([]);
+  const [ deck, setDeck ] = useState({});
 
   useEffect(() => {
     async function loadDecks() {
@@ -26,11 +27,19 @@ function Layout() {
       <div className="container">
       <Switch>
         <Route exact path="/">
-          <Home decks={decks} />
+          <Home 
+            decks={decks}
+            deck={deck} 
+            setDeck={setDeck} 
+          />
         </Route>
 
         <Route path="/decks">
-          <Decks decks={decks}/>
+          <Decks 
+            decks={decks} 
+            deck={deck} 
+            setDeck={setDeck}
+          />
         </Route>
 
         <Route>

@@ -5,10 +5,10 @@ import AddDeck from "./AddDeck";
 import ViewDeck from "./ViewDeck";
 import Study from "./Study";
 import EditDeck from "./EditDeck";
-import AddCard from "./AddCard"
-import EditCard from "./EditCard"
+import AddCard from "./AddCard";
+import EditCard from "./EditCard";
 
-function Decks({ decks }) {
+function Decks({ decks, deck, setDeck }) {
     return (
         <div>
             <Switch>
@@ -25,11 +25,14 @@ function Decks({ decks }) {
                 </Route>
 
                 <Route path="/decks/:deckId/cards/new">
-                    <AddCard />
+                    <AddCard 
+                        deck={deck} 
+                        setDeck={setDeck}
+                    />
                 </Route>
 
                 <Route path="/decks/:deckId/cards/:cardId/edit">
-                    <EditCard />
+                    <EditCard/>
                 </Route>
 
                 <Route path="/decks/:deckId">

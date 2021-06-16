@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { readDeck } from "../utils/api/index";
-import { Link, useParams, useHistory, useRouteMatch } from "react-router-dom";
+import { Link, useParams, useHistory } from "react-router-dom";
 import NotEnoughCards from "./NotEnoughCards"
 
 function Study() {
     const { deckId } = useParams();
-    const { url } = useRouteMatch();
     const history = useHistory();
     const [ studyDeck, setStudyDeck ] = useState({})
     const [ studyCard, setStudyCard ] = useState({

@@ -22,6 +22,7 @@ function CardList({ deck }){
               <div>
                 {card.front}
               </div>
+              <br/>
               <div>
                 {card.back}
               </div>
